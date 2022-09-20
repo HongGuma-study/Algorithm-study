@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c55dba9-00f4-482b-bb63-58db17f1d611" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/me/java/Array/MyArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/me/java/Array/MyArrayTest.java" afterDir="false" />
+    <list default="true" id="2c55dba9-00f4-482b-bb63-58db17f1d611" name="Changes" comment="자료구조 강의 듣기전 미리 코드 작성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/java/Array/MyArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/java/Array/MyArray.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +64,14 @@
       <option name="presentableId" value="Default" />
       <updated>1663660758208</updated>
     </task>
+    <task id="LOCAL-00001" summary="자료구조 강의 듣기전 미리 코드 작성">
+      <created>1663669122628</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663669122628</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -77,5 +84,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="자료구조 강의 듣기전 미리 코드 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="자료구조 강의 듣기전 미리 코드 작성" />
   </component>
 </project>

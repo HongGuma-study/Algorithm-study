@@ -5,10 +5,10 @@ package me.java.Array;
  */
 public class MyArray {
     int[] intArr; //int array
-    int count; // ?여기서 카운트는 뭘까 0부터 시작하는 것으로 보아 배열의 현재 index 같음
+    int count; // ?여기서 카운트는 뭘까 0부터 시작하는 것으로 보아 배열의 현재 index 같음 -> 개수라고 함
 
     public int ARRAY_SIZE; // 배열 사이즈
-    public static final int ERROR_NUM = 999999999;
+    public static final int ERROR_NUM = -999999999; //에러 코드
 
     /**
      * 아무 입력도 안 받은 생성자 (기본 사이즈 배열 생성)
@@ -31,7 +31,7 @@ public class MyArray {
 
     /**
      * 배열에 원소 추가하는 메소드
-     * 뒤에서부터 삽입이 된다.
+     * 맨뒤에서부터 삽입이 된다.
      * @param num 추가할 원소
      */
     public void addElement(int num){
@@ -44,6 +44,9 @@ public class MyArray {
 
     /**
      * 배열에 원소 삽입하는 메소드
+     * [10],[50],[30],[40],[-1] 이렇게 있을때 1 자리에 새로운 원소를 넣고 싶다면
+     * [10],[],[50],[30],[40],[-1] 이런식으로 원소들이 한칸씩 뒤로 이동해야한다.
+     * 단 맨뒤에 있는 40부터 이동해야 하기 때문에 for문에서 i = count-1 부터 시작한다.
      * @param position 삽입할 위치 (== index)
      * @param num 삽입할 원소
      */
@@ -70,6 +73,9 @@ public class MyArray {
 
     /**
      * 원소 삭제하는 메소드
+     * [10],[50],[20],[30],[-1]인 배열에서 1자리의 원소를 삭제하고 싶으면
+     * [10],[20],[30],[-1] 그냥 뒤에서 앞 자리로 덮어 씌우면 된다.
+     * 그래서 for문에서 i=position부터 시작한다.
      * @param position 삭제할 위치
      * @return 에러나면 에러코드 리턴, 아니면 intArr 리턴
      */
