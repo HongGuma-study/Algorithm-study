@@ -1,4 +1,4 @@
-package me.java.Array;
+package data.structure.array;
 
 /**
  * jdk에서 제공하는 ArrayList를 만들어보자.

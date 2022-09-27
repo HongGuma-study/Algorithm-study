@@ -1,4 +1,4 @@
-package me.java.Array;
+package data.structure.array;
 
 public class MyArrayTest {
     public static void main(String[] args) {
