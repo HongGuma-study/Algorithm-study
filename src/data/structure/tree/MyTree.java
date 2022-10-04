@@ -109,35 +109,31 @@ public class MyTree {
             }
             return true;
         } else if (currNode.left == null && currNode.right != null) { //삭제할 노드가 자식 노드를 오른쪽에 한개만 가지고 있는 경우
-            if (value < currParentNode.value) { //삭제할 value 가 내 부모
-                currParentNode.left = currNode.right;
-            } else {
-                currParentNode.right = currNode.right;
+            if (value < currParentNode.value) { //삭제할 value 가 내 부모보다 작으면
+                currParentNode.left = currNode.right; // 부모의 왼쪽이 내 오른쪽 자식
+            } else {//아니면
+                currParentNode.right = currNode.right; //부모의 오른쪽이 내 오른쪽 자식
             }
             return true;
-            // Case3-1: 삭제할 Node가 Child Node를 두 개 가지고 있을 경우
-            // 상위 코드 조건에 부합하지 않는 경우는 결국 (currNode.left != null && currNode.right != null) 이므로
-            // 별도로 else if 로 하기 보다, else 로 작
-        } else {
 
-            // 삭제할 Node가 Parent Node 왼쪽에 있을 때
-            if (value < currParentNode.value) {
+        } else { //삭제할 node 의 자식이 2개인 경우
+            if (value < currParentNode.value) { //삭제할 node 가 내 부모노드 왼쪽에 있을 때 (value == "나")
 
                 // 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node 찾기
-                Node changeNode = currNode.right;
-                Node changeParentNode = currNode.right;
-                while (currNode.left != null) {
-                    changeParentNode = currNode;
-                    changeNode = currNode.left;
+                Node changeNode = currNode.right; // 바꿀 노드를 내 오른쪽 노드로 초기화
+                Node changeParentNode = currNode.right; //바꿀 노드의 부모 노드를 내 오른쪽 노드로 초기화
+                while (changeNode.left != null) { //왼쪽이 안나올때까지 내려가 (내 왼쪽 자식이 내가 되고 내 부모는 '나'가 되고... null 나올때까지 반복)
+                    changeParentNode = changeNode;
+                    changeNode = changeNode.left;
                 }
                 // 여기까지 실행되면, changeNode 에는 삭제할 Node 의 오른쪽 자식 중, 가장 작은 값을 가진 Node 가 들어있음
 
                 if (changeNode.right != null) {
                     // Case3-1-2: 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node의 오른쪽에 Child Node가 있을 때
-                    changeParentNode.left = changeNode.right;
+                    changeParentNode.left = changeNode.right; //changeNode 부모 노드의 왼쪽은 changeNode의 오른쪽 자식이 되는 거임
                 } else {
                     // Case3-1-1: 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node의 오른쪽에 Child Node가 없을 때
-                    changeParentNode.left = null;
+                    changeParentNode.left = null; //없으면 왼쪽 그냥 비워
                 }
                 // parent Node 의 왼쪽 Child Node 에 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 changeNode 를 연결
                 currParentNode.left = changeNode;
@@ -146,14 +142,12 @@ public class MyTree {
                 changeNode.right = currNode.right;
                 changeNode.left = currNode.left;
 
-                // 삭제할 Node 삭제!
-                currNode = null;
-                // 삭제할 Node가 Parent Node 오른쪽에 있을 때
-            } else {
+
+            } else { // 삭제할 Node가 Parent Node 오른쪽에 있을 때
                 // 삭제할 Node의 오른쪽 자식 중, 가장 작은 값을 가진 Node 찾기
                 Node changeNode = currNode.right;
                 Node changeParentNode = currNode.right;
-                while (changeNode.left != null) {
+                while (changeNode.left != null) { //왼쪽이 안나올 때까지 반복 (왜 왼쪽이냐 tree는 무조건 왼쪽이 작은거 오른쪽이 큰거라서 왼쪽으로 가다보면 작은 숫자가 나 올 수 밖에 없음)
                     changeParentNode = changeNode;
                     changeNode = changeNode.left;
                 }
@@ -182,8 +176,6 @@ public class MyTree {
                     changeNode.right = currNode.right;
                 }
                 changeNode.left = currNode.left;
-                // 삭제할 Node 삭제!
-                currNode = null;
             }
             return true;
         }
