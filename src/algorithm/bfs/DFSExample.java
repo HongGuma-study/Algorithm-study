@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 //단지수 세기
-public class BFSexample {
+public class DFSExample {
     public static void main(String[] args) {
         input();
         pro();
